@@ -218,18 +218,6 @@ Triangles::Shatter.generate_worley_sites(coords, cell_size:, jitter:,
 # => { inside: [[x,y],...], all: [[x,y],...], inside_flags: [true/false,...] }
 ```
 
-### `Triangles::TriVis` — Triangle Graph Traversal
-
-```ruby
-Triangles::TriVis.next_edge(e)          # next edge within the same triangle
-Triangles::TriVis.prev_edge(e)          # previous edge within the same triangle
-Triangles::TriVis.edges_of_tri(t)       # => [3t, 3t+1, 3t+2]
-Triangles::TriVis.left_of?(x1,y1,x2,y2,px,py)   # is p left of directed line?
-Triangles::TriVis.right_of?(x1,y1,x2,y2,px,py)  # is p right of directed line?
-Triangles::TriVis.seg_intersect_ray(s1x,s1y,s2x,s2y,r1x,r1y,r2x,r2y)
-# => parameter t >= 0 of intersection along ray, or Float::INFINITY
-```
-
 ## Running Tests
 
 ```bash
