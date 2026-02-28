@@ -1,0 +1,7 @@
+require_relative 'test_bayazit'
+require_relative 'test_constrain'
+require_relative 'test_earcut'
+require_relative 'test_quickhull'
+require_relative 'test_shatter_helpers'
+require_relative 'test_triangles'
+require_relative 'test_trivis'
