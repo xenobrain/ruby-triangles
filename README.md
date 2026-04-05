@@ -211,7 +211,7 @@ ruby tests/test_constrain.rb      # Constrained Delaunay
 ruby tests/test_trivis.rb         # Visibility polygons
 ```
 
-Tests require the `minitest` gem (included in Ruby's standard library).
+Tests require the `minitest` gem
 
 ## License
 
