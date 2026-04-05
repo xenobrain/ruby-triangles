@@ -216,3 +216,8 @@ Tests require the `minitest` gem
 ## License
 
 Unlicense / Public Domain
+
+**The author would like to acknowledge and thank Mapbox, the CGAL authors, 
+Mark Bayazit, Marco Gunnink, Scott Lembcke, and Jonathan Shewchuk respectively 
+who advanced the state of computational geometry. This library would not have 
+been possible without their contributions.**
