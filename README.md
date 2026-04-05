@@ -15,7 +15,6 @@ All algorithms use **flat coordinate arrays** — coordinates are stored as `[x1
 | Constrained Delaunay | `Triangles::TriVis.cdt_init` | Edge-constrained CDT |
 | Visibility polygon | `Triangles::TriVis.triangular_expansion` | Triangular expansion |
 | Voronoi shattering | `Triangles.shatter_polygon` | Worley-noise based |
-| Robust predicates | `Triangles::Geometry` | Shewchuk adaptive arithmetic |
 
 ## Installation
 
@@ -24,8 +23,6 @@ Copy `triangles.rb` into your project and require it:
 ```ruby
 require_relative 'triangles'
 ```
-
-No gems required. The file is self-contained and has no external dependencies.
 
 ## Usage
 
@@ -177,28 +174,6 @@ shards  = Triangles.shatter_polygon(
 
 ## Reference
 
-### `Triangles::Geometry` — Robust Predicates
-
-```ruby
-Triangles::Geometry.triangle_signed_area(ax, ay, bx, by, cx, cy)
-# => positive (CCW), negative (CW), or ~0 (collinear)
-
-Triangles::Geometry.robust_orient2d(ax, ay, bx, by, cx, cy)
-# => exact sign using Shewchuk adaptive arithmetic
-
-Triangles::Geometry.robust_incircle(ax, ay, bx, by, cx, cy, dx, dy)
-# => > 0 if d inside circumcircle of CCW triangle (abc), <= 0 otherwise
-
-Triangles::Geometry.segments_intersect?(p1x, p1y, p2x, p2y, p3x, p3y, p4x, p4y)
-# => true if segments [p1,p2] and [p3,p4] properly intersect
-
-Triangles::Geometry.point_on_segment?(ax, ay, bx, by, px, py)
-# => true if p lies on segment [a,b] (bounding-box check)
-
-Triangles::Geometry.dist_squared(ax, ay, bx, by)
-# => squared Euclidean distance (avoids sqrt)
-```
-
 ### `Triangles::Shatter` — Low-level Polygon Operations
 
 ```ruby
@@ -238,14 +213,6 @@ ruby tests/test_trivis.rb         # Visibility polygons
 
 Tests require the `minitest` gem (included in Ruby's standard library).
 
-## Design Notes
-
-- **Single file**: The entire library lives in `triangles.rb`. No gem, no bundler required.
-- **Flat arrays**: All coordinate data uses `[x1, y1, x2, y2, ...]`. This avoids object allocation overhead and makes the format easy to share between algorithms.
-- **Numerically robust**: Orientation and in-circle tests use Shewchuk's adaptive exact arithmetic, eliminating the "wobbles" that plague naive floating-point geometry.
-- **No mutation of input**: Methods return new arrays; input coordinates are not modified.
-- **Public domain**: Licensed under the Unlicense — do whatever you want with it.
-
 ## License
 
-This is free and unencumbered software released into the public domain. See [LICENSE](LICENSE) for details.
+Unlicense / Public Domain
